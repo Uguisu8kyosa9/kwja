@@ -49,7 +49,12 @@ dependencies = [
     "hydra-core>=1.2",
     "rhoknp>=1.7",
     "typer-slim>=0.24.0,<0.25.0",
-    "jinf>=1.0.4",
+    # FORK-LOCAL: upstream jinf reads its bundled JSON dictionaries without an explicit
+    # encoding and so crashes under cp932 on Japanese Windows, taking down word-module
+    # loading. Points at our fork carrying that fix; see hkiyomaru/jinf#2. Revert to a plain
+    # "jinf>=1.0.4" once that is merged and released -- a direct reference also makes this
+    # project non-uploadable to PyPI, so it must never reach an upstream pull request.
+    "jinf @ git+https://github.com/Uguisu8kyosa9/jinf.git@windows-encoding-fix",
     # pure-cdb 4.x publishes manylinux x86_64 wheels only, and building its C extension from
     # the sdist fails on Windows (setuptools cannot detect a modern MSVC install). Fall back to
     # the last pure-Python release there; everywhere else keep 4.x and its accelerated hashing.
@@ -104,6 +109,10 @@ test = [
     "seqeval>=1.2",
     "torchmetrics>=1.0",
 ]
+
+# FORK-LOCAL: required for the jinf direct reference above. Remove together with it.
+[tool.hatch.metadata]
+allow-direct-references = true
 
 [tool.hatch.build.targets.sdist]
 exclude = [

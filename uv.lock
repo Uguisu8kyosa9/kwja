@@ -768,11 +768,7 @@ wheels = [
 [[package]]
 name = "jinf"
 version = "1.0.4"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/09/1b/810b0ba0175e0e90cda15aa020fac12330feeea60461440fea41c1147920/jinf-1.0.4.tar.gz", hash = "sha256:749982c729a76ea73a075edb1fc9226c81f676b549497f9cb935898ae08f6495", size = 7102, upload-time = "2022-08-08T07:10:29.644Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c4/ef/f8c89db1db4541139e7f72d14153265a39e33078290612399e4cbef9a45d/jinf-1.0.4-py3-none-any.whl", hash = "sha256:e35bef8efb476c78a2d6d9bb3c60f722cdf5f0df4d7642b19b46b8cc10f8f23f", size = 6343, upload-time = "2022-08-08T07:10:28.357Z" },
-]
+source = { git = "https://github.com/Uguisu8kyosa9/jinf.git?rev=windows-encoding-fix#2e1ca974ecf23126fe999f310bff24ba9636de96" }
 
 [[package]]
 name = "jinja2"
@@ -858,7 +854,7 @@ requires-dist = [
     { name = "huggingface-hub", specifier = ">=0.36.0,<1.0" },
     { name = "hydra-core", specifier = ">=1.2" },
     { name = "importlib-resources", marker = "python_full_version < '3.11'", specifier = ">=6.0,<7.0" },
-    { name = "jinf", specifier = ">=1.0.4" },
+    { name = "jinf", git = "https://github.com/Uguisu8kyosa9/jinf.git?rev=windows-encoding-fix" },
     { name = "lightning", specifier = ">=2.6.0,<2.7.0" },
     { name = "numpy", specifier = ">=2.0,<2.5" },
     { name = "omegaconf", specifier = ">=2.3.0,<2.4.0" },
